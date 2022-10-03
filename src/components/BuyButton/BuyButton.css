@@ -1,0 +1,14 @@
+.buy {
+    width: 5rem;
+    height: 2rem;
+    color: indigo;
+    background-color: inherit;
+    border-radius: 0.5rem;
+    border-color: indigo;
+}
+
+.buy:hover {
+    color: white;
+    background-color: indigo;
+    cursor: pointer;
+}

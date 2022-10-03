@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {TokenTable} from './components/TokenTable';
+import {DescTableKeys, FilterType, TableKeys} from './components/TokenTable/TokenTable.types';
+import {itemsForTable} from './data/data';
 
 function App() {
+
+  const [filters, setFilters] = React.useState<FilterType>({type: 'THC', status: 'green', active: 'status'})
+  const [head, setHead] = React.useState<TableKeys | DescTableKeys>('conditions')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TokenTable
+        items={itemsForTable}
+        header={head}
+        filters={filters}
+        onBuy={console.log}
+        onFilter={setFilters}
+        onSort={setHead}
+      />
     </div>
   );
 }
